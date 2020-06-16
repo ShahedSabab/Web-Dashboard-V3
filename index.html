@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>WebDashboard_3.0</title>
+    <link rel="icon" type="image/x-icon" href="dist/img/favicon.png">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+    <!-- D3 style -->
+    <link rel="stylesheet" href="dist/css/d3Style.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <!--  chatbot-->
+    <link rel="stylesheet" href="dist/css/chatbot.css">
+    <!--  main style-->
+    <link rel="stylesheet" href="dist/css/style.css">
+    <!--  datatable-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap4.min.css">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+<div class="content">
+
+</div>
+<nav class="left-menu navbar navbar-expand-md navbar-dark bg-dark fixed-left">
+
+    <a class="navbar-brand" href>
+        <img src="dist/img/favicon.png" class="brand-image img-circle"
+             style="opacity: .8">
+        Farmlink
+    </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-class="fixed-left">
+                    <i class="fa fa-th"></i>
+                    Bids
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-class="fixed-top">
+                    <i class="fa fa-user"></i>
+                    Subscriber Profile
+                </a>
+                <nav class="nav nav-pills flex-column">
+                    <a class="nav-link ml-3 my-m">
+                        <i class="fa fa-check-square"></i>
+                        Risk Tolerance
+                    </a>
+                    <a class="nav-link ml-3 my-m">
+                        <i class="fa fa-check-square"></i>
+                        Commodity Production
+                    </a>
+                </nav>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-class="fixed-left">
+                    <i class="fa fa-sign-out-alt"></i>
+                    Log Out
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark ">
+    <!-- top navbar links -->
+    <ul class="navbar-nav ml-auto" style="text-align: center">
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="#" class="nav-link text-left" style="color: #343a40; cursor: default ">Dashboard</a>
+        </li>
+    </ul>
+
+    <ul class="navbar-nav">
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+            <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">
+                <i class="fa fa-bell fa-2x" ></i>
+                <span class="badge badge-warning navbar-badge">6</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+                <span class="dropdown-item dropdown-header">6 Notifications</span>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-users mr-2"></i> Petrus invited a new user
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item">
+                    <i class="fas fa-file mr-2"></i> 5 unread reports
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+            </div>
+        </li>
+    </ul>
+
+
+    <ul class="navbar-nav">
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item">
+            <h8 style="color: #ffff;">Alexander Pierce</h8>
+            <img src="dist/img/user1-128x128.jpg" class="user-image img-circle"
+                 style="opacity: .8; ">
+        </li>
+    </ul>
+
+
+
+</nav>
+
+
+<div class="content-page">
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Dashboard</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right " style="background-color: #ffff;">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">Dashboard</li>
+                    </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6" style="padding-left: 5px; padding-right: 5px">
+
+                <!-- Commondity Card-->
+                <div class="card">
+                    <div class="card-header border-0" style="background-color: white">
+                        <h3 class="card-title">Commodity Production</h3>
+                        <div class="card-tools">
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="dist/img/wheat.jpg" class="card-img-bottom" alt="Product">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                                    <p class="text-success text-xl">
+                                        <i class="ion ion-ios-refresh-empty"></i>
+                                    </p>
+                                    <p class="d-flex flex-column text-right">
+                                        <span class="text-capitalize"><strong>WHEAT</strong></span>
+                                    </p>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                                    <p class="text-success text-xl">
+                                        <i class="ion ion-ios-refresh-empty"></i>
+                                    </p>
+                                    <p class="d-flex flex-column text-right">
+                                        <span class="font-weight-bold">
+                                           <span class="text-success">
+                                              <i class="fas fa-arrow-up"></i> 10%
+                                           </span>
+                                        </span>
+                                        <span class="text-muted">PRICE PER BUSHEL</span>
+                                    </p>
+                                </div>
+                                <!-- /.d-flex -->
+                                <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                                    <p class="text-warning text-xl">
+                                        <i class="ion ion-ios-cart-outline"></i>
+                                    </p>
+                                    <p class="d-flex flex-column text-right">
+                                        <span class="font-weight-bold">
+                                             <span class="text-danger">
+                                              <i class="fas fa-arrow-down"></i> 15%
+                                           </span>
+                                        </span>
+                                        <span class="text-muted">SUPPLY</span>
+                                    </p>
+                                </div>
+                                <!-- /.d-flex -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Commodity Card End-->
+
+                <!-- Commondity Card-->
+                <div class="card">
+                    <div class="card-header border-0" style="background-color: white">
+                        <h3 class="card-title">Commodity Production</h3>
+                        <div class="card-tools">
+                        </div>
+                    </div>
+
+                    <div class="card-body" style="margin-top:-20px;">
+
+                        <div class="position-relative mb-4">
+                            <div id="my_dataviz_line" class="svg-container"></div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Commodity Card End-->
+
+                <!--Analyst View-->
+                <div class="card">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <div class="card-header border-0" style="background-color: white">
+                                <h3 class="card-title">Analyst View: Canadian Wheat</h3>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="col-sm" style="padding-top: 5px; text-align: right">
+                                <div class="dropdown show">
+                                    <button type="button" class="btn btn-circle" id="dropdownMenuLink" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false" ><i class="fa fa-plus-circle fa-2x"
+                                                                                          style="color: #343a40"></i></button>
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModalCenter"
+                                                style="width: 100%">
+                                            Add Row
+                                        </button>
+                                        <button type="button" class="btn btn-link" data-toggle="modal"
+                                                data-target="#exampleModalCenter2" style="width: 100%">
+                                            Add Column
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Row -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Add Row</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form class="form-horizontal" style="text-align: right">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <label class="col-sm-6 col-form-label">Year</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-6 col-form-label">Domestic Consumption</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-6 col-form-label">Feed Dom. Consumption</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-6 col-form-label">FSI Consumption</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-6 col-form-label">Area Harvested</label>
+                                            <div class="col-sm-4">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /.card-body -->
+                                </form>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Row end-->
+
+                    <!-- Modal Col -->
+                    <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog"
+                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle2">Add Column</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <form class="form-horizontal" style="text-align: center">
+                                    <div class="card-body">
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <button type="button" class="btn btn-danger">Column Name</button>
+                                            </div>
+                                            <!-- /btn-group -->
+                                            <input type="text" class="form-control" placeholder="Enter the name of the column">
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">2010</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">2011</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">2012</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">2013</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">2014</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">2015</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">2016</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">2017</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">2018</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label">2019</label>
+                                            <div class="col-sm-5">
+                                                <input type="text" class="form-control" placeholder="Enter a value">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- /.card-body -->
+                                </form>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal Col end-->
+
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                            <div class="row">
+                                <div class="col-sm-12 position-relative mb-4">
+                                    <table id="AnalystView" class="table table-bordered table-striped table-responsive"
+                                           role="grid"
+                                           aria-describedby="example1_info">
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                                aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                                                Year
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                                aria-label="Browser: activate to sort column ascending">Domestic Consumption
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                                aria-label="Platform(s): activate to sort column ascending">Feed Dom. Consumption
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                                aria-label="Engine version: activate to sort column ascending">FSI Consumption
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                                aria-label="CSS grade: activate to sort column ascending">Area Harvested
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr role="row" class="odd">
+                                            <td tabindex="0" class="sorting_1">2010</td>
+                                            <td>7521</td>
+                                            <td>2550</td>
+                                            <td>4971</td>
+                                            <td>8296</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td tabindex="0" class="sorting_1">2011</td>
+                                            <td>9824</td>
+                                            <td>4577</td>
+                                            <td>5247</td>
+                                            <td>8553</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td tabindex="0" class="sorting_1">2012</td>
+                                            <td>9567</td>
+                                            <td>4474</td>
+                                            <td>5093</td>
+                                            <td>9479</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td tabindex="0" class="sorting_1">2013</td>
+                                            <td>9454</td>
+                                            <td>4221</td>
+                                            <td>5223</td>
+                                            <td>10447</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1" tabindex="0">2014</td>
+                                            <td>9118</td>
+                                            <td>3975</td>
+                                            <td>5143</td>
+                                            <td>9554</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1" tabindex="0">2015</td>
+                                            <td>7987</td>
+                                            <td>2819</td>
+                                            <td>5168</td>
+                                            <td>9558</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1" tabindex="0">2016</td>
+                                            <td>10671</td>
+                                            <td>5823</td>
+                                            <td>4848</td>
+                                            <td>8976</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1" tabindex="0">2017</td>
+                                            <td>9029</td>
+                                            <td>4132</td>
+                                            <td>4897</td>
+                                            <td>8983</td>
+                                        </tr>
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1" tabindex="0">2018</td>
+                                            <td>8971</td>
+                                            <td>3982</td>
+                                            <td>4989</td>
+                                            <td>9881</td>
+                                        </tr>
+                                        <tr role="row" class="even">
+                                            <td class="sorting_1" tabindex="0">2019</td>
+                                            <td>9900</td>
+                                            <td>4900</td>
+                                            <td>5000</td>
+                                            <td>9660</td>
+                                        </tr>
+                                        </tbody>
+                                        <tfoot>
+                                        <tr>
+                                            <th rowspan="1" colspan="1">Year</th>
+                                            <th rowspan="1" colspan="1">Domestic Consumption</th>
+                                            <th rowspan="1" colspan="1">Feed Dom. Consumption</th>
+                                            <th rowspan="1" colspan="1">FSI Consumption</th>
+                                            <th rowspan="1" colspan="1">Area Harvested</th>
+                                        </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!--Analyst View End-->
+                <!-- /.card -->
+
+
+            </div>
+            <!--2nd column-->
+            <div class="col-lg-6" style="padding-left: 5px; padding-right: 5px">
+                <!--pack chart-->
+                <div class="card">
+                    <div class="card-header border-0" style="background-color: white">
+                        <h3 class="m-0">Top Countries of Wheat Production in 2019</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="position-relative mb-4">
+                            <div id="my_dataviz_pack" class="svg-container"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--pack chart end-->
+
+                <!--bar chart-->
+                <div class="card">
+                    <div class="card-header border-0" style="background-color: white">
+                        <h3 class="m-0">Canadian Wheat Stocks (Tonnes) Over Years</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="position-relative mb-4">
+                            <div id="my_dataviz_bar" class="svg-container"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--bar chart end-->
+
+                <!--stack chart-->
+                <div class="card">
+                    <div class="card-header border-0" style="background-color: white">
+                        <h3 class="m-0">Wheat TY Imports & TY Imp. from US Over Years</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="position-relative mb-4">
+                            <div id="my_dataviz_stack" class="svg-container"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--stack chart end-->
+            </div>
+            <!--2nd column end-->
+        </div>
+    </div>
+</div>
+<!--    chatbot-->
+<div id="chat-body">
+    <div id="chat-circle" class="btn btn-raised">
+        <div id="chat-overlay"></div>
+        <i class="fa fa-comment-alt fa-2x"></i>
+    </div>
+    <div class="chat-box">
+        <div class="chat-box-header">
+            <i class="fas fa-circle fa-xs" style="color: #32CD32;"> </i>
+            Farmbot
+            <span class="chat-box-toggle"><i class="fa fa-times"></i></span>
+        </div>
+        <div class="chat-box-body">
+            <div class="chat-box-overlay">
+            </div>
+            <div class="chat-logs">
+
+            </div><!--chat-log -->
+        </div>
+        <div class="chat-input">
+            <form>
+                <input type="text" id="chat-input" placeholder="Send a message..."/>
+                <button type="submit" class="chat-submit" id="chat-submit"><i class="fa fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </div>
+</div>
+<!--    chatbot end-->
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+<!--Chatbot-->
+<script src="dist/js/chatbot.js"></script>
+<!-- Datatables-->
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+<script src="dist/js/table.js"></script>
+<!--D3 Controller-->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="dist/js/D3controller_stack.js"></script>
+<script src="dist/js/D3controller_pack.js"></script>
+<script src="dist/js/D3controller_line.js"></script>
+<script src="dist/js/D3controller_bar.js"></script>
+
+</body>
+</html>

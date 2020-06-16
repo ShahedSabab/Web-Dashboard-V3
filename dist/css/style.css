@@ -1,0 +1,102 @@
+a {
+    cursor: pointer;
+}
+
+
+body {
+    padding-top: 80px
+}
+
+@media (min-width: 768px) {
+    body {
+        padding-top: 0
+    }
+}
+
+.content-page {
+    margin-left: 270px;
+    overflow: hidden;
+    padding: 10px 10px 10px 15px;
+    min-height: 100vh;
+}
+
+
+@media(max-width: 768px) {
+    .content-page {
+        margin-left: 0px;
+        overflow: hidden;
+        padding: 10px 10px 10px 15px;
+        min-height: 100vh;
+    }
+}
+
+.card{
+    margin-bottom: 10px;
+}
+
+
+.navbar-nav{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.navbar.fixed-left {
+    position: fixed;
+    font-size: 12pt;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030
+}
+
+.navbar-brand{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.img-circle {
+    border-radius: 50%;
+}
+
+.user-image {
+
+    width: 50px;
+    height: 50px;
+    margin-left:10px;
+}
+
+
+#navbarsExampleDefault{
+    padding-top:20px;
+    padding-left: 20px;
+}
+
+@media (min-width: 768px) {
+    .navbar.fixed-left {
+        bottom: 0;
+        width: 280px;
+        flex-flow: column nowrap;
+        align-items: flex-start
+    }
+
+    .navbar.fixed-left .navbar-collapse {
+        flex-grow: 0;
+        flex-direction: column;
+        width: 100%
+    }
+
+    .navbar.fixed-left .navbar-collapse .navbar-nav {
+        flex-direction: column;
+        width: 100%
+    }
+
+    .navbar.fixed-left .navbar-collapse .navbar-nav .nav-item {
+        width: 100%
+    }
+
+    .navbar.fixed-left .navbar-collapse .navbar-nav .nav-item .dropdown-menu {
+        top: 0
+    }
+}
