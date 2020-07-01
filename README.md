@@ -8,6 +8,8 @@ The purpose of this project is to gain insights into the agricultural market dat
 • The visualizations have been developed using d3.js. <br>
 • The color palettes of the visualizations are carefully chosen to support color-blind users. <br>
 
+Version with Angular js: [Check this link](https://github.com/ShahedSabab/Web-Dashboard)
+
 # Desktop UI
 <img src="desktopUI.gif" width="100%">
 
